@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>펀드시황</title>
+    <style>
+        body {
+            font-family: '맑은 고딕', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .summary {
+            text-align: right;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 2px solid #333;
+        }
+
+        th, td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+
+        td.title {
+            text-align: left;
+        }
+
+        td.title a {
+            text-decoration: none;
+            color: #004080;
+            transition: color 0.2s;
+        }
+
+        td.title a:hover {
+            color: #b22222;
+            text-decoration: underline;
+        }
+
+        /* 페이지네이션 */
+        .pagination {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .pagination button {
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 6px 10px;
+            margin: 0 2px;
+            cursor: pointer;
+        }
+
+        .pagination button.active {
+            background-color: #b22222;
+            color: #fff;
+            border-color: #b22222;
+        }
+
+        /* 검색 영역 */
+        .search-box {
+            border-top: 1px solid #ddd;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .search-box select,
+        .search-box input {
+            padding: 6px 8px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+        }
+
+        .search-box button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-left: 6px;
+        }
+
+        .search-box button:hover {
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>펀드시황</h1>
+    <div class="summary">총 2,698건 현재 : 1 / 270페이지 (나중에 쿼리로 수정해야함)</div>
+
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 10%;">번호</th>
+            <th style="width: 60%;">제목</th>
+            <th style="width: 15%;">등록일</th>
+            <th style="width: 15%;">조회수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>3002</td>
+            <td class="title"><a href="#">관리자페이지에서 등록하면 여기에 나올 수 있게 만들기(DB저장도 해야함)</a></td>
+            <td>2025/10/31</td>
+            <td>241</td>
+        </tr>
+        <tr>
+            <td>3001</td>
+            <td class="title"><a href="#">[10/31 국내] 코스피 사상 첫 4000 돌파</a></td>
+            <td>2025/10/31</td>
+            <td>141</td>
+        </tr>
+        <tr>
+            <td>3000</td>
+            <td class="title"><a href="#">[10/24 해외] 글로벌 증시, 미중 긴장 완화 기대감에 동반 강세</a></td>
+            <td>2025/10/24</td>
+            <td>297</td>
+        </tr>
+        <tr>
+            <td>2999</td>
+            <td class="title"><a href="#">[10/24 국내] AI, 지배구조 개선 기대감에 국내증시 상승</a></td>
+            <td>2025/10/24</td>
+            <td>311</td>
+        </tr>
+        <tr>
+            <td>2998</td>
+            <td class="title"><a href="#">[10/17 해외] 미중 갈등 이어졌지만 미국 증시 보합세</a></td>
+            <td>2025/10/17</td>
+            <td>348</td>
+        </tr>
+        <tr>
+            <td>2997</td>
+            <td class="title"><a href="#">[10/17 국내] AI와 밸류업 프로그램이 이끈 상승 랠리</a></td>
+            <td>2025/10/17</td>
+            <td>329</td>
+        </tr>
+        <tr>
+            <td>2996</td>
+            <td class="title"><a href="#">[10/2 해외] 임명장부 뉴스에도 미증시 상승</a></td>
+            <td>2025/10/02</td>
+            <td>613</td>
+        </tr>
+        <tr>
+            <td>2995</td>
+            <td class="title"><a href="#">[10/2 국내] 단기 투익 확실성 불확실성에 코스피 하락</a></td>
+            <td>2025/10/02</td>
+            <td>600</td>
+        </tr>
+        <tr>
+            <td>2994</td>
+            <td class="title"><a href="#">[9/26 해외] 경제지표 시강기에 부합하며 미증시 상승</a></td>
+            <td>2025/09/26</td>
+            <td>962</td>
+        </tr>
+        <tr>
+            <td>2993</td>
+            <td class="title"><a href="#">[9/26 국내] 미국 금리지표 기대 이상에 금리 인하 기대 약화되며 한국증시 하락</a></td>
+            <td>2025/09/26</td>
+            <td>1026</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- 페이지네이션 -->
+    <div class="pagination">
+        <button disabled>&laquo;</button>
+        <button disabled>&lt;</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>&gt;</button>
+        <button>&raquo;</button>
+    </div>
+
+    <!-- 검색 영역 -->
+    <div class="search-box">
+        <select>
+            <option>제목</option>
+            <option>내용</option>
+        </select>
+        <input type="text" placeholder="페이징+검색>기능들어가면">
+        <button>검색</button>
+    </div>
+</div>
+</body>
+</html>

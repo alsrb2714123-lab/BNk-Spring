@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>투자자정보확인</title>
+    <style>
+        body {
+            font-family: '맑은 고딕', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            color: #111;
+        }
+
+        .container {
+            width: 950px;
+            margin: 40px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* 정보 테이블 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 10px 14px;
+            text-align: center;
+        }
+
+        .info-table th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 투자자 유형 영역 */
+        .investor-type {
+            border-top: 2px solid #b22222;
+            padding-top: 30px;
+        }
+
+        .investor-type h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #004080;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .investor-type p {
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .chart-box {
+            display: flex;
+            justify-content: center;
+        }
+
+        .chart-box img {
+            width: 420px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        /* 주의사항 */
+        .notice {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .notice ul {
+            margin: 10px 0 20px 0;
+            padding-left: 20px;
+            line-height: 1.7;
+        }
+
+        /* 투자유형 안내 */
+        .type-guide {
+            margin-top: 20px;
+        }
+
+        .type-guide h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #b22222;
+            padding-bottom: 6px;
+        }
+
+        .type-guide table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .type-guide th, .type-guide td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .type-guide th {
+            background-color: #f8f8f8;
+        }
+
+        .type-guide tr:nth-child(odd) {
+            background-color: #fcfcfc;
+        }
+
+        /* 경고 문구 */
+        .warning-box {
+            border: 2px solid #b22222;
+            padding: 15px;
+            color: #b22222;
+            margin: 25px 0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* 결과표 */
+        .result-section {
+            margin-top: 30px;
+        }
+
+        .result-section h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* 결과 입력 영역 */
+        .result-box {
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .result-box input,
+        .result-box select {
+            border: 1px solid #ccc;
+            padding: 6px 8px;
+            font-size: 13px;
+        }
+
+        .btn-analyze {
+            display: block;
+            margin: 0 auto;
+            background-color: #b22222;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            cursor: pointer;
+            border-radius: 2px;
+            font-size: 14px;
+        }
+
+        .btn-analyze:hover {
+            background-color: #8b0000;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>투자자정보확인</h1>
+
+    <!-- 기본 정보 -->
+    <table class="info-table">
+        <tr>
+            <th>투자리스크(위험)등급</th>
+            <td>공격투자형</td>
+            <th>능력향상설명회자</th>
+            <td>2025-11-07</td>
+        </tr>
+        <tr>
+            <th>투자가능기간</th>
+            <td>3년 이상</td>
+            <th>누적경험기간</th>
+            <td>투자경험없음</td>
+        </tr>
+    </table>
+
+    <!-- 공격투자형 설명 -->
+    <div class="investor-type">
+        <h2>공격투자형</h2>
+        <p>
+            시장평균 수익률을 일부 상회하는 높은 수준의 투자수익을 추구하며,<br>
+            이를 위해 자산가격 변동에 따른 손실위험을 감수할 수 있음.<br>
+            투자자금 대부분을 주식, 주식형 펀드 또는 파생상품 등에 투자하여<br>
+            투자원금의 손실 위험이 있음.
+        </p>
+
+        <div class="chart-box">
+            <img src="images/investor-type-chart.png" alt="공격투자형 그래프">
+        </div>
+    </div>
+
+    <!-- 주의사항 -->
+    <div class="notice">
+        <h2>주의사항</h2>
+        <ul>
+            <li>본 투자자 정보는 투자운용에서 제공되며, 투자자의 평가 결과는 고객님께서 입력하신 설문에 근거하여 산출되었음을 알려드립니다.</li>
+            <li>본 투자성향은 금융회사가 투자상품을 권유할 때 기준자료로 활용하는 것이며, 투자자가 금융상품에 실제 투자할 때의 손실위험을 보장하는 것은 아닙니다.</li>
+        </ul>
+    </div>
+
+    <!-- 투자유형 안내 -->
+    <div class="type-guide">
+        <h2>투자유형안내</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>투자유형</th>
+                <th>설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>안정형</td>
+                <td>예금 또는 예금 수준의 수익률을 기대하며, 투자원금에 손실이 발생하는 것을 원하지 않음</td>
+            </tr>
+            <tr>
+                <td>안정추구형</td>
+                <td>투자원금의 손실위험을 최소화하고, 이자소득이나 배당소득 수준의 일정한 투자수익을 기대함</td>
+            </tr>
+            <tr>
+                <td>위험중립형</td>
+                <td>원금 손실위험을 감수하고 비교적 높은 수준의 수익을 기대하며, 일정 수준의 투자위험을 감내할 수 있음</td>
+            </tr>
+            <tr>
+                <td>적극투자형</td>
+                <td>시장수익률 이상의 수익을 추구하며, 투자원금의 손실 위험을 감내할 수 있음</td>
+            </tr>
+            <tr>
+                <td>공격투자형</td>
+                <td>시장평균 수익률을 일부 상회하는 높은 수준의 투자수익을 추구하며, 이를 위해 자산가격 변동에 따른 손실위험을 감수할 수 있음</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- 경고 문구 -->
+    <div class="warning-box">
+        이건 <strong>투자성향분석</strong>에 대한 <span style="color:#000;">고객님의 투자 유형</span>입니다.<br>
+        금융소비자보호법에 따라 고객님의 투자성향분석 실사, 적합성·적정성원칙에 부합하는 상품만 조회 및 가입이 가능합니다.<br>
+        투자성향분석을 진행하시겠습니까?
+    </div>
+
+    <!-- 투자성향 결과표 -->
+    <div class="result-section">
+        <h2>투자성향 결과표</h2>
+
+        <div class="result-box">
+            <input type="text" placeholder="아이디 입력" value="dream1910">
+            <span>@</span>
+            <input type="text" placeholder="이메일 앞부분 입력" value="naver">
+            <select>
+                <option>naver.com</option>
+                <option>gmail.com</option>
+                <option>daum.net</option>
+            </select>
+            <button>결과받기</button>
+        </div>
+
+        <button class="btn-analyze">분석하기</button>
+    </div>
+
+</div>
+
+</body>
+</html>

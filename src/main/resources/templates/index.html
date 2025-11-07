@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNK부산은행 - 펀드</title>
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com crossorigin}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+    
+    <!-- ==================== HEADER START ==================== -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <a href="/">
+                        <img th:src="@{/images/main/h1_busanbank_new.png}" alt="BNK부산은행">
+                    </a>
+                </div>
+                <div class="header-utils">
+                    <a href="#" class="util-link">로그인</a>
+                    <button type="button" class="btn-search" title="검색하기">검색하기</button>
+                    <button type="button" class="btn-allmenu" title="전체메뉴">전체메뉴</button>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="#">펀드상품</a></li>
+                    <li><a href="#">추천펀드</a></li>
+                    <li><a href="#">수익률BEST</a></li>
+                    <li><a href="#">판매BEST</a></li>
+                    <li><a href="#">ELF</a></li>
+                    <li><a href="#">펀드케어</a></li>
+                    <li><a href="#">펀드정보센터</a></li>
+                    <li><a href="#">펀드이용가이드</a></li>
+                    <li><a href="#">펀드서비스</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- ==================== HEADER END ==================== -->
+    
+    <!-- ==================== MAIN CONTENT START ==================== -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <a href="#" class="hero-link">
+                    <img th:src="@{/images/main/fpm_main_fnd.png}" alt="펀드 신규가입">
+                </a>
+            </div>
+        </section>
+        
+        <!-- Fund Category Section -->
+        <section class="fund-category-section">
+            <div class="container">
+                <h2 class="section-title">나의 투자성향에 맞는 <strong>다양한 펀드</strong>를 확인해보세요</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <a href="#">
+                            <div class="category-icon">
+                                <img th:src="@{/images/main/fnd_prod_1.png}" alt="추천펀드">
+                            </div>
+                            <div class="category-name">추천펀드</div>
+                        </a>
+                    </div>
+                    <div class="category-card">
+                        <a href="#">
+                            <div class="category-icon">
+                                <img th:src="@{/images/main/fnd_prod_2.png}" alt="수익률 BEST">
+                            </div>
+                            <div class="category-name">수익률 BEST</div>
+                        </a>
+                    </div>
+                    <div class="category-card">
+                        <a href="#">
+                            <div class="category-icon">
+                                <img th:src="@{/images/main/fnd_prod_3.png}" alt="판매 BEST">
+                            </div>
+                            <div class="category-name">판매 BEST</div>
+                        </a>
+                    </div>
+                    <div class="category-card">
+                        <a href="#">
+                            <div class="category-icon">
+                                <img th:src="@{/images/main/fnd_prod_4.png}" alt="ELF">
+                            </div>
+                            <div class="category-name">ELF</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- New Products Section -->
+        <section class="new-products-section">
+            <div class="container">
+                <h2 class="section-title">오늘의 인기 TOP 상품</h2>
+                <ul class="today-list">
+                    <li>
+                        <a href="#">
+                            <span class="slide-tag">펀드</span>
+                            <span class="slide-txt">부산 동백전 체크카드</span>
+                            <span class="slide-pv"><span class="hd-t">조회</span> 7,353</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="slide-tag">펀드</span>
+                            <span class="slide-txt">디(The) 레벨업 정기예금</span>
+                            <span class="slide-pv"><span class="hd-t">조회</span> 5,241</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="slide-tag">펀드</span>
+                            <span class="slide-txt">부산 동백전 선불카드</span>
+                            <span class="slide-pv"><span class="hd-t">조회</span> 3,998</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="slide-tag">펀드</span>
+                            <span class="slide-txt">ONE신용대출(가계)</span>
+                            <span class="slide-pv"><span class="hd-t">조회</span> 2,855</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="slide-tag">펀드</span>
+                            <span class="slide-txt">디(The) 특판 정기예금</span>
+                            <span class="slide-pv"><span class="hd-t">조회</span> 2,404</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+    </main>
+    <!-- ==================== MAIN CONTENT END ==================== -->
+    
+    <!-- ==================== FOOTER START ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#"><span style="color: #004890 !important;">개인정보처리방침</span></a>
+                <span class="divider">·</span>
+                <a href="#">영업점</a>
+                <span class="divider">·</span>
+                <a href="#">고객정보취급방침</a>
+                <span class="divider">·</span>
+                <a href="#">보호금융상품목록</a>
+                <span class="divider">·</span>
+                <a href="#">상품공시실</a>
+                <span class="divider">·</span>
+                <a href="#">전자민원접수</a>
+                <span class="divider">·</span>
+                <a href="#">전자금융이용자보호조치</a>
+                <span class="divider">·</span>
+                <a href="#">전자금융거래기본약관펀드</a>
+            </div>
+            <div class="footer-links">
+                <a href="#">위치기반서비스 이용약관</a>
+            </div>
+            <div class="footer-info">
+                <p><strong>고객상담 1588-6200, 1544-6200&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #d4d2d2;"> | </span>&nbsp;&nbsp;&nbsp; 해외 82-2-1588-6200</strong></p>
+            </div>
+            <div class="footer-copyright">
+                <p>COPYRIGHT © 2014 BUSANBANK. ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <img th:src="@{/images/main/ico_footer_fb.png}" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img th:src="@{/images/main/ico_footer_in.png}" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img th:src="@{/images/main/ico_footer_yt.png}" alt="YouTube">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img th:src="@{/images/main/wa_mark.png}" alt="Web Accessibility">
+                    </a>
+                </div>
+                <div class="footer-dropdowns">
+                    <select class="footer-select">
+                        <option>BNK금융그룹</option>
+                    </select>
+                    <select class="footer-select">
+                        <option>FAMILY SITE</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ==================== FOOTER END ==================== -->
+    
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>

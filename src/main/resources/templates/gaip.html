@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원유형선택</title>
+    <style>
+        body {
+            font-family: '맑은 고딕', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== 전체 레이아웃 ===== */
+        .container {
+            width: 960px;
+            margin: 60px auto;
+            min-height: 800px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* ===== 설명 박스 ===== */
+        .desc {
+            border: 1px solid #e0e0e0;
+            background: #fafafa;
+            padding: 15px 20px;
+            font-size: 13px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .desc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .desc ul li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== 회원유형 카드 ===== */
+        .member-type {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .type-box {
+            flex: 1;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            text-align: center;
+            padding: 25px 10px 20px;
+            background-color: #f9f9f9;
+            transition: 0.2s;
+            box-sizing: border-box;
+        }
+
+        .type-box:hover {
+            border: 2px solid #27477d;
+            background: #eaf0ff;
+        }
+
+        .type-box h4 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .type-box p {
+            font-size: 13px;
+            color: #555;
+            height: 38px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #fff;
+            color: #333;
+            border: 1px solid #999;
+            padding: 6px 18px;
+            border-radius: 3px;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .type-box:hover .btn {
+            background: #27477d;
+            color: #fff;
+            border-color: #27477d;
+        }
+
+        /* ===== 서비스 안내 ===== */
+        .service {
+            border-top: 1px solid #ccc;
+            padding-top: 40px;
+            color: #555;
+        }
+
+        .service h3 {
+            font-size: 18px;
+            color: #27477d;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>회원유형선택</h2>
+
+    <div class="desc">
+        <ul>
+            <li>- 고객님께서 해당하시는 회원의 유형을 선택해 주세요.</li>
+            <li>- 회원종류에 따라 기업전용지점 등록 등 이용에 차이가 있으니 반드시 해당하는 유형으로 선택해 주시기 바랍니다.</li>
+        </ul>
+    </div>
+
+    <div class="member-type">
+        <div class="type-box">
+            <h4>일반회원(개인)</h4>
+            <p>영업점에서 인터넷뱅킹을 신청하지 않아도 홈페이지 신청 가능.</p>
+            <a href="#" class="btn">바로가기</a>
+        </div>
+
+        <div class="type-box" style="background:#f0f3fa;border-color:#27477d;">
+            <h4 style="color:#27477d;">개인사업자</h4>
+            <p>개인이 운영하는 사업체를 가진 고객.</p>
+            <a href="#" class="btn" style="background:#27477d;color:#fff;border-color:#27477d;">바로가기</a>
+        </div>
+
+        <div class="type-box">
+            <h4>법인</h4>
+            <p>영리 또는 비영리 목적의 사업체를 가진 고객.</p>
+            <a href="#" class="btn">바로가기</a>
+        </div>
+
+        <div class="type-box">
+            <h4>개인(연결회원)</h4>
+            <p>영업점에서 인터넷뱅킹을 신청하지 않아도 홈페이지 신청 가능.</p>
+            <a href="#" class="btn">바로가기</a>
+        </div>
+    </div>
+
+    <div class="service">
+        <h3>Service information</h3>
+        <p>
+            부산은행의 또 다른 세상!<br>
+            온라인으로 회원 가입하시면 보다 편리하고 안전하게 은행 거래를 하실 수 있습니다.<br>
+            다양한 금융정보, 송금, 대출, 기업회원 이벤트 등 부산은행의 서비스를 경험해 보세요.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
