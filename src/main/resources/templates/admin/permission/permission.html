@@ -23,24 +23,27 @@
 
                 <!-- 검색 섹션 -->
                 <div class="search-section">
-                    <table class="search-table">
-                        <tbody>
-                            <tr>
-                                <td class="search-label">검색조건</td>
-                                <td class="search-inputs">
-                                    <select class="form-select search-select-small" id="permissionSearchSelect">
-                                        <option>아이디</option>
-                                        <option>이름</option>
-                                        <option>이메일</option>
-                                    </select>
-                                    <input type="text" class="form-input search-input-large" id="permissionSearchInput" placeholder="입력하세요">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="search-actions">
-                        <button class="btn btn-search" onclick="performSearch()">조회</button>
-                    </div>
+                    <form th:action="@{/admin/permission}" method="get" style="margin: 0;">
+                        <table class="search-table">
+                            <tbody>
+                                <tr>
+                                    <td class="search-label">검색조건</td>
+                                    <td class="search-inputs">
+                                        <select class="form-select search-select-small" id="permissionSearchSelect" name="searchType">
+                                            <option value="userId">아이디</option>
+                                            <option value="name">이름</option>
+                                            <option value="email">이메일</option>
+                                        </select>
+                                        <input type="text" class="form-input search-input-large" id="permissionSearchInput" name="keyword" placeholder="입력하세요" th:value="${pageRequestDTO != null ? pageRequestDTO.keyword : ''}">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="search-actions">
+                            <button class="btn btn-search" type="submit">조회</button>
+                            <button class="btn btn-secondary" type="button" th:onclick="|location.href='@{/admin/permission}'|">초기화</button>
+                        </div>
+                    </form>
                 </div>
 
                 <!-- 검색 결과 목록 -->
