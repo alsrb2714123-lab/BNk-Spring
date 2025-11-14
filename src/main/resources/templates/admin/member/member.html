@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 관리 - 은행 펀드 상품 관리자</title>
+    <link rel="stylesheet" th:href="@{/css/admin/admin_styles.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/permission.css}">
+</head>
+<body>
+<!-- 사이드바 Fragment -->
+<div th:replace="~{admin/_sidebar :: sidebar('member')}"></div>
+
+<div class="main-content">
+    <!-- 헤더 Fragment -->
+    <div th:replace="~{admin/_header :: header}"></div>
+    <div class="main-content-body">
+        <div class="container">
+            <!-- 페이지 헤더 -->
+            <header class="page-header">
+                <h1>회원 관리</h1>
+            </header>
+
+            <div class="table-section">
+                <div class="search-section">
+                    <form th:action="@{/admin/member}" method="get" style="margin: 0;">
+                        <table class="search-table">
+                            <tbody>
+                            <tr>
+                                <td class="search-label">검색조건</td>
+                                <td class="search-inputs">
+                                    <select class="form-select search-select-small"
+                                            name="searchType">
+                                        <option value="custId"
+                                                th:selected="${pageRequestDTO != null and pageRequestDTO.searchType == 'custId'}">
+                                            아이디
+                                        </option>
+                                        <option value="custName"
+                                                th:selected="${pageRequestDTO != null and pageRequestDTO.searchType == 'custName'}">
+                                            이름
+                                        </option>
+                                    </select>
+                                    <input type="text"
+                                           class="form-input search-input-large"
+                                           name="keyword"
+                                           placeholder="회원 아이디 또는 이름을 입력하세요."
+                                           th:value="${pageRequestDTO != null ? pageRequestDTO.keyword : ''}">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="search-actions">
+                            <button class="btn btn-search" type="submit">조회</button>
+                            <button class="btn btn-secondary" type="button"
+                                    th:onclick="|location.href='@{/admin/member}'|">초기화
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-info">
+                    <span>
+                        총
+                        <strong th:text="${pageResponse != null ? pageResponse.total : 0}">0</strong>명
+                    </span>
+                    <span class="pagination-info"
+                          th:if="${pageResponse != null and pageResponse.total > 0}">
+                        <span th:text="${pageRequestDTO != null ? pageRequestDTO.pg : 1}">1</span>
+                        /
+                        <span th:text="${(pageResponse.total + pageRequestDTO.size - 1) / pageRequestDTO.size}">1</span>
+                        page
+                    </span>
+                </div>
+
+                <table class="permission-table">
+                    <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>전화번호</th>
+                        <th>이메일</th>
+                        <th>가입일</th>
+                        <th>상태</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${pageResponse == null or #lists.isEmpty(pageResponse.dtoList)}">
+                        <td colspan="7" style="text-align: center; padding: 40px;">
+                            등록된 회원이 없습니다.
+                        </td>
+                    </tr>
+                    <tr th:each="member, stat : ${pageResponse != null ? pageResponse.dtoList : {}}">
+                        <td th:text="${pageResponse.startNo - stat.index}">1</td>
+                        <td th:text="${member.custId}">user01</td>
+                        <td th:text="${member.custName}">홍길동</td>
+                        <td th:text="${member.custHp}">010-1234-5678</td>
+                        <td th:text="${member.custEmail}">user01@example.com</td>
+                        <td th:text="${#temporals.format(member.joinDate, 'yyyy-MM-dd')}">2024-01-15</td>
+                        <td th:text="${member.statusCode != null ? member.statusCode : '정상'}">정상</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="pagination"
+                     th:if="${pageResponse != null and pageResponse.total > 0}">
+                    <button class="page-btn prev"
+                            th:if="${pageResponse.prev}"
+                            th:onclick="|location.href='@{/admin/member(pg=${pageResponse.start - 1}, searchType=${pageRequestDTO != null ? pageRequestDTO.searchType : ''}, keyword=${pageRequestDTO != null ? pageRequestDTO.keyword : ''})}'|">
+                        &lt;
+                    </button>
+
+                    <div class="page-numbers">
+                        <button class="page-number"
+                                th:each="p : ${#numbers.sequence(pageResponse.start, pageResponse.end)}"
+                                th:text="${p}"
+                                th:classappend="${p == (pageRequestDTO != null ? pageRequestDTO.pg : 1)} ? ' active'"
+                                th:onclick="|location.href='@{/admin/member(pg=${p}, searchType=${pageRequestDTO != null ? pageRequestDTO.searchType : ''}, keyword=${pageRequestDTO != null ? pageRequestDTO.keyword : ''})}'|">
+                            1
+                        </button>
+                    </div>
+
+                    <button class="page-btn next"
+                            th:if="${pageResponse.next}"
+                            th:onclick="|location.href='@{/admin/member(pg=${pageResponse.end + 1}, searchType=${pageRequestDTO != null ? pageRequestDTO.searchType : ''}, keyword=${pageRequestDTO != null ? pageRequestDTO.keyword : ''})}'|">
+                        &gt;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 사이드바 스크립트 -->
+<div th:replace="~{admin/_sidebar :: sidebar-script}"></div>
+</body>
+</html>
+
+
