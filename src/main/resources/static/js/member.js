@@ -87,6 +87,17 @@ function initRegisterPage() {
         });
     }
 
+    // 주택 정보 변경 감지
+    const houseOwn = document.querySelector('select[name="houseOwnership"]');
+    const houseType = document.querySelector('select[name="houseType"]');
+
+    if (houseOwn) {
+        houseOwn.addEventListener('change', validateHouseInfo);
+    }
+    if (houseType) {
+        houseType.addEventListener('change', validateHouseInfo);
+    }
+
     // 폼 제출 시 전체 검증
     form.addEventListener('submit',  async function (e) {
 
@@ -137,11 +148,35 @@ async function validateMasterForm() {
         validateEmail(),
         validateAccountNumber(),
         validateAccountPassword(),
-        validateBirthdate()
+        validateBirthdate(),
+        validateHouseInfo()
     ].every(isValid => isValid); // 모든 검사가 true여야 함
 
     if (!allValid) {
-        alert('입력 항목을 다시 확인해주세요. (빨간색 표시)');
+        // 첫 번째 에러 필드를 찾아서 이동
+        const firstErrorField = document.querySelector('.input-error');
+
+        if (firstErrorField) {
+            // 1. 부드럽게 스크롤 이동
+            firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // 2. 포커스 이동
+            firstErrorField.focus();
+
+            // 3. 흔들림 효과 적용
+            firstErrorField.classList.add('input-shake');
+
+            // 0.5초 뒤에 흔들림 클래스 제거 (다음에도 다시 흔들릴 수 있게)
+            setTimeout(() => {
+                firstErrorField.classList.remove('input-shake');
+            }, 500);
+        }
+
+        // 4.스크롤/흔들림을 볼 수 있게 알림창을 0.1초 뒤에 띄움
+        setTimeout(() => {
+            alert('입력 항목을 다시 확인해주세요. (빨간색 표시)');
+        }, 100);
+
         return false;
     }
 
@@ -350,12 +385,40 @@ function validateBirthdate() {
     return clearError('birthdate');
 }
 
+function validateHouseInfo() {
+    let isValid = true;
+
+    // 1. 주택소유 검사
+    const ownField = document.querySelector('select[name="houseOwnership"]');
+    if (ownField) {
+        if (ownField.value === "") {
+            showError('houseOwnership', '주택소유 여부를 선택해주세요.');
+            isValid = false;
+        } else {
+            clearError('houseOwnership');
+        }
+    }
+
+    // 2. 주택종류 검사
+    const typeField = document.querySelector('select[name="houseType"]');
+    if (typeField) {
+        if (typeField.value === "") {
+            showError('houseType', '주택종류를 선택해주세요.');
+            isValid = false;
+        } else {
+            clearError('houseType');
+        }
+    }
+
+    return isValid;
+}
+
 // ==================== 에러 메시지 표시/제거 ====================
 /**
  * 폼 테이블(`<td>`) 내부에 에러 메시지를 표시
  */
 function showError(fieldName, message) {
-    const field = document.querySelector(`input[name="${fieldName}"]`);
+    const field = document.querySelector(`[name="${fieldName}"]`);
     if (!field) return;
 
     // 필드를 감싸는 <td> 찾기
@@ -383,7 +446,7 @@ function showError(fieldName, message) {
  * 성공 메시지를 표시
  */
 function showSuccess(fieldName, message) {
-    const field = document.querySelector(`input[name="${fieldName}"]`);
+    const field = document.querySelector(`[name="${fieldName}"]`);
     if (!field) return;
 
     const container = field.closest('td');
@@ -409,7 +472,7 @@ function showSuccess(fieldName, message) {
  * 에러 메시지 및 스타일 제거
  */
 function clearError(fieldName) {
-    const field = document.querySelector(`input[name="${fieldName}"]`);
+    const field = document.querySelector(`[name="${fieldName}"]`);
     if (field) {
         field.classList.remove('input-error');
     }
