@@ -102,29 +102,17 @@
                     </tbody>
                 </table>
 
-                <div class="pagination"
-                     th:if="${pageResponse != null and pageResponse.total > 0}">
-                    <button class="page-btn prev"
-                            th:if="${pageResponse.prev}"
-                            th:onclick="|location.href='@{/admin/member(pg=${pageResponse.start - 1}, searchType=${pageRequestDTO != null ? pageRequestDTO.searchType : ''}, keyword=${pageRequestDTO != null ? pageRequestDTO.keyword : ''})}'|">
-                        &lt;
-                    </button>
-
+                <div class="pagination">
+                    <button class="page-btn prev" onclick="prevPage()">&lt;</button>
                     <div class="page-numbers">
-                        <button class="page-number"
-                                th:each="p : ${#numbers.sequence(pageResponse.start, pageResponse.end)}"
-                                th:text="${p}"
-                                th:classappend="${p == (pageRequestDTO != null ? pageRequestDTO.pg : 1)} ? ' active'"
-                                th:onclick="|location.href='@{/admin/member(pg=${p}, searchType=${pageRequestDTO != null ? pageRequestDTO.searchType : ''}, keyword=${pageRequestDTO != null ? pageRequestDTO.keyword : ''})}'|">
-                            1
-                        </button>
+                        <button class="page-number active">1</button>
+                        <button class="page-number">2</button>
+                        <button class="page-number">3</button>
+                        <button class="page-number">4</button>
+                        <button class="page-number">5</button>
                     </div>
-
-                    <button class="page-btn next"
-                            th:if="${pageResponse.next}"
-                            th:onclick="|location.href='@{/admin/member(pg=${pageResponse.end + 1}, searchType=${pageRequestDTO != null ? pageRequestDTO.searchType : ''}, keyword=${pageRequestDTO != null ? pageRequestDTO.keyword : ''})}'|">
-                        &gt;
-                    </button>
+                    <button class="page-btn next" onclick="nextPage()">&gt;</button>
+                </div>
                 </div>
             </div>
         </div>

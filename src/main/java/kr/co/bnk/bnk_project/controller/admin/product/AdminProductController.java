@@ -33,5 +33,10 @@ public class AdminProductController {
     public String productDocuments() {
         return "admin/product/adminproduct-documents";
     }
+
+    @GetMapping("/status")
+    public String productStatus() {
+        return "admin/product/adminproduct-status";
+    }
 }
 
