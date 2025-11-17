@@ -87,7 +87,11 @@ public class BnkUserDTO {
 
     private String calendarType;      // 양력/음력
     private String childCount;        // 자녀수
+
+    @NotEmpty(message = "주택소유 여부는 필수 항목입니다.")
     private String houseOwnership;    // 주택소유
+
+    @NotEmpty(message = "주택종류는 필수 항목입니다.")
     private String houseType;         // 주택종류
 
     @NotEmpty(message = "자동차소유 여부는 필수 항목입니다.")

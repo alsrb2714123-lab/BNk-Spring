@@ -40,7 +40,8 @@ public class MemberController {
     }
 
     @GetMapping("/register")
-    public String register(){
+    public String register(Model model){
+        model.addAttribute("dto", new BnkUserDTO()); // 빈 객체 전달
         return "member/register";
     }
 
