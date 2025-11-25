@@ -104,6 +104,7 @@ public class MemberController {
             return "redirect:/member/complete";
 
         } catch (Exception e) {
+            log.error("회원가입 진행 중 에러 발생: ", e);
             redirectAttributes.addFlashAttribute("error", "회원가입 중 오류가 발생했습니다: " + e.getMessage());
             return "redirect:/member/register";
         }
@@ -178,4 +179,22 @@ public class MemberController {
         }
         return response;
     }
+
+    // 투자성향분석 설문 페이지
+    @GetMapping("/survey")
+    public String survey(Model model) {
+
+        return "member/survey";
+    }
+
+    // 투자성향분석 결과 페이지 (임시)
+    @PostMapping("/survey-result")
+    public String surveyResult(Model model) {
+
+        // 지금은 무조건 '적극투자형'으로 결과를 보여주도록 설정
+        model.addAttribute("riskType", "적극투자형");
+        model.addAttribute("score", "82");
+        return "member/survey_result";
+    }
+
 }
