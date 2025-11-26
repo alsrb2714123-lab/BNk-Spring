@@ -65,6 +65,17 @@ spring:
           ssl:
             trust: smtp.gmail.com
 
+  web:
+    resources:
+      static-locations:
+        - classpath:/static/
+        - classpath:/public/
+        - classpath:/resources/
+        - classpath:/META-INF/resources/
+        - ${UPLOAD_PATH:file:C:/bnk_upload/}
+
+UPLOAD_PATH: file:C:/bnk_upload/
+
 file:
   upload:
     path: upload
