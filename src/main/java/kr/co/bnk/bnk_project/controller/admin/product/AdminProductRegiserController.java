@@ -265,14 +265,21 @@ public class AdminProductRegiserController {
     @ResponseBody
     public ResponseEntity<Map<String, Boolean>> checkLocks(@RequestParam("fundCodes") List<String> fundCodes, HttpSession session) {
         String sessionId = session.getId();
+        System.out.println("=== checkLocks API 호출 ===");
+        System.out.println("요청 sessionId: " + sessionId);
+        System.out.println("요청 fundCodes: " + fundCodes);
+        
         Map<String, Boolean> lockStatusMap = new HashMap<>();
         
         for (String fundCode : fundCodes) {
             String lockCheck = editLockService.checkLock(fundCode, sessionId);
             // lockCheck가 null이 아니면 다른 사용자가 잠금 중
-            lockStatusMap.put(fundCode, lockCheck != null);
+            boolean isLocked = lockCheck != null;
+            lockStatusMap.put(fundCode, isLocked);
+            System.out.println("fundCode: " + fundCode + " -> isLocked: " + isLocked + " (lockCheck: " + lockCheck + ")");
         }
         
+        System.out.println("반환 lockStatusMap: " + lockStatusMap);
         return ResponseEntity.ok(lockStatusMap);
     }
 
