@@ -72,7 +72,7 @@
                     th:classappend="${activeMenu != null && (activeMenu == 'settings-search-keyword' || activeMenu == 'settings-category' || activeMenu == 'settings-terms') ? 'open' : ''}">
                     <a href="#" onclick="toggleSubmenu(this.parentElement); return false;">환경 설정</a>
                     <ul class="submenu">
-                        <li><a th:href="@{/admin/settings/search-keyword}"
+                        <li><a th:href="@{/admin/settings/keyword}"
                                th:classappend="${activeMenu == 'settings-search-keyword' ? 'active' : ''}">검색어 관리</a></li>
                         <li><a th:href="@{/admin/settings/category}"
                                th:classappend="${activeMenu == 'settings-category' ? 'active' : ''}">카테고리 관리</a></li>
