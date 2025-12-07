@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,5 +59,18 @@ public class FundApiController {
     public List<ProductDTO> getWishList(Authentication auth) {
         Long custNo = ((MyUserDetails) auth.getPrincipal()).getUserDTO().getCustNo();
         return wishListService.getWishList(custNo);
+    }
+
+    @GetMapping("/nav/year/{fundCode}")
+    @ResponseBody
+    public Map<String, Object> getYearNav(@PathVariable String fundCode) {
+
+        List<ProductDTO> list = fundService.getLastYearNav(fundCode);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("labels", list.stream().map(ProductDTO::getLabel).toList());
+        result.put("data", list.stream().map(ProductDTO::getValue).toList());
+
+        return result;
     }
 }

@@ -230,13 +230,16 @@ public class FundService {
 
     }
 
+    public List<ProductDTO> getLastYearNav(String fundCode) {
+        return productMapper.getYearNav(fundCode);
+    }
+
     public interface ProductService {
 
         List<ProductDTO> getAllFunds();   //  전체 펀드 조회
 
         List<ProductDTO> getProductListByRisk(String riskType); // 기존 코드
     }
-
 
 }
 

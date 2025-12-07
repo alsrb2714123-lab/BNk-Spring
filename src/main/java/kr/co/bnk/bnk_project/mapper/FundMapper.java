@@ -52,6 +52,7 @@ public interface FundMapper {
 
     List<ProductDTO> selectFundYieldBest();
 
+    List<ProductDTO> getYearNav(String fundCode);
 
 }
 

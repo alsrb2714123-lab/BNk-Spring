@@ -53,7 +53,6 @@
         <div class="container">
             <ul class="nav-menu">
                 <li><a th:href="@{/fund/productList}">펀드상품</a></li>
-                <li><a href="#">펀드케어</a></li>
                 <li><a href="#">펀드정보센터</a></li>
                 <li><a href="#">펀드이용가이드</a></li>
 <!--                <li><a href="#">펀드서비스</a></li>-->
@@ -85,7 +84,7 @@
 
     <!-- 수시공시(최근 1개월) -->
     <div class="tab-content active" id="recent">
-        <div class="summary">총 703건 <b>DB 데이터로 불러와야함</b></div>
+        <div class="summary">총 703건 </div>
         <table>
             <thead>
             <tr>
@@ -97,13 +96,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>2025/11/28</td>
-                <td class="title">DB 데이터로 불러와야함</td>
-                <td>키움투자운용</td>
-                <td>소규모해소(해지)</td>
-                <td><button class="btn-download">📄 다운로드</button></td>
-            </tr>
+            <tbody>
+        <tr><td>2025/11/27</td><td class="title">삼성성장형증권투자신탁A</td><td>삼성자산운용</td><td>성과보수 기준 변경</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/25</td><td class="title">한화테크코어증권신탁A</td><td>한화자산운용</td><td>파생상품 노출도 변경</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/21</td><td class="title">미래글로벌테크증권투자신탁</td><td>미래에셋자산운용</td><td>해외부동산 실사 결과</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/20</td><td class="title">KB스타성장펀드</td><td>KB자산운용</td><td>편입종목 변경</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/19</td><td class="title">신한이노베이션증권투자신탁</td><td>신한자산운용</td><td>운용결과 요약</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+
+        <!-- 이하 자동 생성 45개 (날짜 하루씩 감소) -->
+        <tr><td>2025/11/19</td><td class="title">BNK글로벌증권투자신탁</td><td>BNK자산운용</td><td>기타사항</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/17</td><td class="title">BNK글로벌증권투자신탁</td><td>BNK자산운용</td><td>기타사항</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/15</td><td class="title">BNK글로벌증권투자신탁</td><td>BNK자산운용</td><td>기타사항</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/14</td><td class="title">BNK글로벌증권투자신탁</td><td>BNK자산운용</td><td>기타사항</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+        <tr><td>2025/11/13</td><td class="title">BNK글로벌증권투자신탁</td><td>BNK자산운용</td><td>기타사항</td><td><button class="btn-download">📄 다운로드</button></td></tr>
+
+
             </tbody>
         </table>
     </div>

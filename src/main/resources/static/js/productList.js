@@ -87,7 +87,7 @@ function renderFundList(category = null) {
                 <span class="tag">${fund.investgrade || ""}</span>
               </div>
 
-              <div class="desc">${fund.fundfeature || ""}</div>
+              <div class="desc">공시번호 : ${fund.fundshortcode || ""}</div>
               <div class="desc">${fund.content ?? ""}</div>
 
               <button class="wishlist-btn"

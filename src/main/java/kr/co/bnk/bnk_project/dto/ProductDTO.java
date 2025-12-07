@@ -45,5 +45,8 @@ public class ProductDTO {
     private Double nav12M;
     private Date tradeDate;
 
+    private String label;
+    private Double value;
+
 
 }

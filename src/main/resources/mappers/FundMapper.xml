@@ -436,6 +436,16 @@
         ]]>
     </select>
 
+    <select id="getYearNav" resultType="kr.co.bnk.bnk_project.dto.ProductDTO">
+        SELECT
+            TO_CHAR(trade_date, 'YYYY-MM') AS label,
+            AVG(nav_per_unit) AS value
+        FROM FUND_DAILY_HISTORY
+        WHERE fund_code = #{fundCode}
+          AND TRADE_DATE >= ADD_MONTHS(SYSDATE, -12)
+        GROUP BY TO_CHAR(trade_date, 'YYYY-MM')
+        ORDER BY label
+    </select>
 
 
 </mapper>

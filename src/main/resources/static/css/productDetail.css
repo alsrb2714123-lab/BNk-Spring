@@ -217,3 +217,93 @@ h1 {
     margin-bottom: 20px;
 
 }
+
+.document-download-box {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 10px;
+}
+.doc-btn-area {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.doc-btn {
+    padding: 10px 16px;
+    background: #ffffff;
+    color: #333333;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+
+    border: 1px solid #cfcfcf;
+}
+
+.doc-btn:hover {
+    background: #f8f8f8;
+    border-color: #b5b5b5;
+}
+
+.fund-overview-section {
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.ov-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #b22222; /* BNK 포인트 컬러 */
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.ov-text {
+    font-size: 14px;
+    color: #333;
+    margin-left: 8px;
+}
+
+.caution-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #b22222;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+/* 🔥 유의사항 전체 영역 박스 */
+.caution-wrapper {
+    border: 1px solid #d9d9d9;
+    padding: 10px;
+    border-radius: 4px;
+    background: #ffffff;
+    margin-top: 10px;
+}
+
+/* 🔥 표 기본 스타일 */
+.caution-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.caution-table th {
+    width: 180px;
+    background: #f7f7f7;
+    border: 1px solid #d9d9d9;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    vertical-align: top;
+}
+
+.caution-table td {
+    border: 1px solid #d9d9d9;
+    color: #444;
+    padding: 12px;
+}
