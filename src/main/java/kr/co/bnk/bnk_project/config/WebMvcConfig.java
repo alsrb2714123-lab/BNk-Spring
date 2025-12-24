@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import kr.co.bnk.bnk_project.interceptor.FundAccessInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -51,5 +52,25 @@ public class WebMvcConfig implements WebMvcConfigurer {
                         "/css/**", "/js/**", "/images/**", "/files/**" // 정적 리소스 및 업로드 파일 제외
                 );
     }
+
+    /* ====================================================================
+     * [2024-12-24 추가] Flutter 앱을 위한 CORS 설정
+     * ====================================================================
+     * Flutter 앱에서 API 호출을 허용하기 위한 CORS 설정
+     * /api/** 경로에 대한 모든 origin 허용 (개발용)
+     * 운영환경에서는 Flutter 앱의 실제 도메인으로 변경 필요
+     * ==================================================================== */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/api/**")
+                .allowedOrigins("*") // 개발용: 모든 origin 허용 (운영환경에서는 Flutter 앱의 실제 도메인으로 변경)
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(false)
+                .maxAge(3600);
+    }
+    /* ====================================================================
+     * [2024-12-24 추가] 끝
+     * ==================================================================== */
 }
 

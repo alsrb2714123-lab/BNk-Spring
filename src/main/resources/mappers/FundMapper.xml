@@ -118,7 +118,7 @@
 
         ORDER BY m.fund_code
         ]]>
-</select>
+    </select>
 
     <select id="findFundDocuments" resultType="kr.co.bnk.bnk_project.dto.ProductDTO">
             SELECT
@@ -294,7 +294,6 @@
         SELECT
         FUND_CODE as fundcode,
         INVEST_GRADE as investgrade,
-
         FUND_NAME as fundName,
         TRUST_MANAGEMENT as trustManagement,
         INVEST_REGION as investRegion,
