@@ -1,5 +1,6 @@
 package kr.co.bnk.bnk_project.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.sql.Date;
@@ -13,7 +14,8 @@ public class ProductDTO {
     private Double perf3M;     // 3개월 수익률
     private Double perf6M;     // 6개월 수익률
     private Double perf12M;    // 1년 수익률// 위험구분 (매우높음위험 등)
-    private int upfrontFEE; //
+    // [2024-12-24 수정] int -> Integer로 변경 (null 값 처리 가능하도록)
+    private Integer upfrontFEE; // 선취수수료 (nullable)
 
     /*fund master에 있는 테이블들 */
     private String fundcode;
@@ -24,6 +26,8 @@ public class ProductDTO {
     private String investgrade;
     private String asset;
     private String classname;
+    // [2024-12-24 추가] Flutter 앱을 위한 JSON 날짜 형식 지정
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private Date regdate;
     private String admincompany;
 
@@ -43,6 +47,8 @@ public class ProductDTO {
     private Double nav3M;
     private Double nav6M;
     private Double nav12M;
+    // [2024-12-24 추가] Flutter 앱을 위한 JSON 날짜 형식 지정
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private Date tradeDate;
 
     private String label;
