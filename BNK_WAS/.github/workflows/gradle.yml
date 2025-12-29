@@ -1,12 +1,18 @@
-name: Java CI with Gradle
+name: Deploy BNK_WAS
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+    paths:
+      - "BNK_WAS/**"
+      - ".github/workflows/gradle.yml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: BNK_WAS
     steps:
       - uses: actions/checkout@v3
 
@@ -23,9 +29,9 @@ jobs:
         uses: gradle/gradle-build-action@v2.6.0
         with:
           arguments: build
+          build-root-directory: BNK_WAS
 
       - name: Get JAR_FILE
-        id: jarfile
         run: |
           JAR_FILE=$(ls build/libs/*.jar | grep -v plain | head -n 1)
           echo "JAR_FILE=${JAR_FILE}" >> $GITHUB_ENV
@@ -33,8 +39,8 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app
-          path: ${{ env.JAR_FILE }}
+          name: bnk_was
+          path: BNK_WAS/${{ env.JAR_FILE }}
 
   deploy:
     needs: build
@@ -43,7 +49,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: app
+          name: bnk_was
           path: build/libs/
 
       - name: Setup SSH Key
@@ -51,21 +57,19 @@ jobs:
           echo "${{ secrets.GCP_KEY }}" > private_key.pem
           chmod 400 private_key.pem
 
-      - name: Copy JAR to EC2
+      - name: Copy JAR to server
         run: |
           JAR_FILE=$(ls build/libs/*.jar | head -n 1)
-          scp -i private_key.pem \
-            -o StrictHostKeyChecking=no \
-            $JAR_FILE \
+          scp -i private_key.pem -o StrictHostKeyChecking=no \
+            "$JAR_FILE" \
             ${{ secrets.GCP_USER }}@${{ secrets.GCP_HOST }}:/home/${{ secrets.GCP_USER }}/
-      
-      - name: Restart Spring Application on EC2
+
+      - name: Restart Spring Application
         run: |
           JAR_FILE=$(basename $(ls build/libs/*.jar | head -n 1))
-          ssh -i private_key.pem \
-            -o StrictHostKeyChecking=no \
+          ssh -i private_key.pem -o StrictHostKeyChecking=no \
             ${{ secrets.GCP_USER }}@${{ secrets.GCP_HOST }} << EOF
-            pgrep java | xargs kill -9;
+            pgrep java | xargs -r kill -9
             nohup java -jar /home/${{ secrets.GCP_USER }}/$JAR_FILE > app.log 2>&1 &
           EOF
 
