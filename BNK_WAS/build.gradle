@@ -9,8 +9,10 @@ version = '0.0.6-SNAPSHOT'
 description = 'BNK_PROJECT'
 
 processResources {
-    filesMatching('**/application.yml'){
-        expand(project.properties)
+    filesMatching('**/application.yml') {
+        filter { line ->
+            line.replace('${version}', project.version.toString())
+        }
     }
 }
 
