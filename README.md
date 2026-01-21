@@ -60,7 +60,6 @@
 
 - USER / ROLE / LOGIN_HISTORY 분리 설계
 - FUND_MASTER / FUND_DAILY_HISTORY 구조 설계
-- COUPON / COUPON_HISTORY 관리
 - 명확한 PK / FK 관계 설정
 
 > 금융 도메인 기준으로 **확장성과 데이터 무결성**을 고려한 DB 모델링
