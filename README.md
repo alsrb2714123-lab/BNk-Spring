@@ -77,6 +77,11 @@
 src
 └─ main
    └─ resources
+      ├─ mappers
+      │  ├─ user-mapper.xml
+      │  ├─ fund-mapper.xml
+      │  └─ admin-mapper.xml
+      │
       ├─ static
       │  ├─ css
       │  ├─ js
@@ -118,12 +123,12 @@ src
          │  │  ├─ adminproduct-status.html
          │  │  └─ adminproduct-documents.html
          │  │
-         │  ├─ settings                   # 공통 레이아웃
+         │  ├─ settings                   # 관리자 공통 레이아웃
          │  │  ├─ header.html
          │  │  ├─ sidebar.html
          │  │  └─ adminMain.html
          │  │
-         │  └─ login.html                 # 관리자 로그인
+         │  └─ login.html                 # 로그인
          │
          ├─ member                        # 사용자 인증 / 가입
          │  ├─ head.html
@@ -152,5 +157,6 @@ src
             ├─ depositGuide.html
             ├─ gaip.html
             └─ sidebar.html
+
 
 
