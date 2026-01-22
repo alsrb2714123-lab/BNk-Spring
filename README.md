@@ -79,11 +79,6 @@
 src
 └─ main
    └─ resources
-      ├─ mappers
-      │  ├─ user-mapper.xml
-      │  ├─ fund-mapper.xml
-      │  └─ admin-mapper.xml
-      │
       ├─ static
       │  ├─ css
       │  ├─ js
