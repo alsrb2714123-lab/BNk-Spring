@@ -73,4 +73,84 @@
 5. 약관 및 설명서 확인    
 
 ---
+## 📂 프로젝트 구조 (Flutter Client)
+src
+└─ main
+   └─ resources
+      ├─ static
+      │  ├─ css
+      │  ├─ js
+      │  └─ images
+      │
+      └─ templates
+         │
+         ├─ admin                         # 관리자 페이지
+         │  │
+         │  ├─ approval_management        # 상품/서류 승인 관리
+         │  │  ├─ approval_management.html
+         │  │  └─ approval_history.html
+         │  │
+         │  ├─ cs                         # 관리자 고객센터 관리
+         │  │  ├─ faq.html
+         │  │  ├─ faq-edit.html
+         │  │  ├─ faq-register.html
+         │  │  ├─ qna.html
+         │  │  └─ qna-detail.html
+         │  │
+         │  ├─ infodisclosures            # 금융 정보 공시
+         │  │  ├─ ad-hoc_disclosure.html
+         │  │  ├─ disclosures_documents.html
+         │  │  ├─ fund_info.html
+         │  │  ├─ fund_market.html
+         │  │  └─ guide.html
+         │  │
+         │  ├─ member                     # 회원 관리
+         │  │  ├─ list.html
+         │  │  ├─ list-detail.html
+         │  │  ├─ detail.html
+         │  │  └─ permission.html
+         │  │
+         │  ├─ product                    # 상품 관리
+         │  │  ├─ adminproduct.html
+         │  │  ├─ adminproduct-register.html
+         │  │  ├─ adminproduct-edit.html
+         │  │  ├─ adminproduct-pending.html
+         │  │  ├─ adminproduct-status.html
+         │  │  └─ adminproduct-documents.html
+         │  │
+         │  ├─ settings                   # 공통 레이아웃
+         │  │  ├─ header.html
+         │  │  ├─ sidebar.html
+         │  │  └─ adminMain.html
+         │  │
+         │  └─ login.html                 # 관리자 로그인
+         │
+         ├─ member                        # 사용자 인증 / 가입
+         │  ├─ head.html
+         │  ├─ tail.html
+         │  ├─ login.html
+         │  ├─ register.html
+         │  ├─ registerType.html
+         │  ├─ terms.html
+         │  ├─ survey.html
+         │  ├─ survey_result.html
+         │  └─ complete.html
+         │
+         └─ my                            # 사용자 금융 서비스
+            ├─ index.html
+            ├─ productList.html
+            ├─ productDetail.html
+            ├─ searchResult.html
+            ├─ fundInformation.html
+            ├─ fundGuide.html
+            ├─ fundShinhan.html
+            ├─ fundSusi.html
+            ├─ investTest.html
+            ├─ investorInfo.html
+            ├─ chatBot.html
+            ├─ FAQ.html
+            ├─ depositGuide.html
+            ├─ gaip.html
+            └─ sidebar.html
+
 
