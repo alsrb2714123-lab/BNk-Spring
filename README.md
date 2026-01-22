@@ -74,6 +74,8 @@
 
 ---
 ## 📂 프로젝트 구조 (Flutter Client)
+
+```text
 src
 └─ main
    └─ resources
